@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MapRouteLine">
+        <!-- Primary route colors -->
+        <attr name="primaryRouteColor" format="color" />
+        <attr name="primaryRouteModerateCongestionColor" format="color" />
+        <attr name="primaryRouteSevereCongestionColor" format="color" />
+        <attr name="primaryRouteShieldColor" format="color" />
+
+        <!-- Alternative route colors -->
+        <attr name="alternativeRouteColor" format="color" />
+        <attr name="alternativeRouteModerateCongestionColor" format="color" />
+        <attr name="alternativeRouteSevereCongestionColor" format="color" />
+        <attr name="alternativeRouteShieldColor" format="color" />
+
+        <!-- Origin/Destination waypoint drawables -->
+        <attr name="originWaypointIcon" format="reference" />
+        <attr name="destinationWaypointIcon" format="reference" />
+
+        <!-- Route Scales -->
+        <attr name="primaryRouteScale" format="float" />
+        <attr name="alternativeRouteScale" format="float" />
+
+        <attr name="upcomingManeuverArrowColor" format="color" />
+        <attr name="upcomingManeuverArrowBorderColor" format="color" />
+
+        <!-- Rounded route line cap -->
+        <attr name="roundedLineCap" format="boolean" />
+    </declare-styleable>
+</resources>

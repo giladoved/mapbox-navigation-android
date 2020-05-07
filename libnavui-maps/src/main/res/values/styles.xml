@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MapRouteLine">
+        <!-- Colors -->
+        <item name="primaryRouteColor">
+            @color/mapbox_navigation_primary_route_layer_blue
+        </item>
+        <item name="primaryRouteModerateCongestionColor">
+            @color/mapbox_navigation_primary_route_layer_congestion_yellow
+        </item>
+        <item name="primaryRouteSevereCongestionColor">
+            @color/mapbox_navigation_primary_route_layer_congestion_red
+        </item>
+        <item name="primaryRouteShieldColor">
+            @color/mapbox_navigation_primary_route_shield_layer_color
+        </item>
+        <item name="upcomingManeuverArrowColor">
+            @color/mapbox_navigation_route_upcoming_maneuver_arrow_color
+        </item>
+        <item name="upcomingManeuverArrowBorderColor">
+            @color/mapbox_navigation_route_upcoming_maneuver_arrow_border_color
+        </item>
+
+        <!-- Scales -->
+        <item name="primaryRouteScale">1.0</item>
+
+        <!-- Expression styling -->
+        <item name="roundedLineCap">true</item>
+    </style>
+</resources>

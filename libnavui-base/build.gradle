@@ -34,5 +34,8 @@ dependencies {
     implementation dependenciesList.kotlinStdLib
     ktlint dependenciesList.ktlint
 
+    api project(':libnavigation-base')
+    api dependenciesList.mapboxSdkGeoJSON
+
     apply from: "${rootDir}/gradle/unit-testing-dependencies.gradle"
 }
