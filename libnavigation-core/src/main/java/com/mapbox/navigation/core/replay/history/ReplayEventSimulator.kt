@@ -63,7 +63,7 @@ internal class ReplayEventSimulator(
         delay(delayMillis)
     }
 
-    fun stopPlaying() {
+    fun stopSimulator() {
         jobControl.job.cancelChildren()
     }
 

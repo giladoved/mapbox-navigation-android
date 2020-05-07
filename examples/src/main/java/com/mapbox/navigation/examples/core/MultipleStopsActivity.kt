@@ -166,7 +166,7 @@ class MultipleStopsActivity : AppCompatActivity(), OnMapReadyCallback {
             mapboxNavigation?.registerRouteProgressObserver(replayProgressObserver)
             mapboxNavigation?.startTripSession()
             startNavigation.visibility = View.GONE
-            replayHistoryPlayer.play(this)
+            replayHistoryPlayer.play()
         }
     }
 

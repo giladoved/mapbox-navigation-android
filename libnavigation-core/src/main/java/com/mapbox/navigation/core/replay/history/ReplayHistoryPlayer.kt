@@ -3,9 +3,6 @@ package com.mapbox.navigation.core.replay.history
 import com.mapbox.android.core.location.LocationEngine
 import com.mapbox.base.common.logger.Logger
 import java.util.Collections.singletonList
-import kotlinx.coroutines.Job
-
-typealias ReplayEventsObserver = (List<ReplayEventBase>) -> Unit
 
 /**
  * This class is similar to a music player. It will include controls like play, pause, seek.
@@ -69,12 +66,10 @@ class ReplayHistoryPlayer(
     /**
      * This will begin playing the [ReplayEventBase] and notifying observers
      * registered via [registerObserver]
-     *
-     * @return a Job for lower level control of player activity
      */
-    fun play(): Job {
-        return replayEventSimulator.launchSimulator { replayEvents ->
-            replayEventsObservers.forEach { it(replayEvents) }
+    fun play() {
+        replayEventSimulator.launchSimulator { replayEvents ->
+            replayEventsObservers.forEach { it.replayEvents(replayEvents) }
         }
     }
 
@@ -86,7 +81,7 @@ class ReplayHistoryPlayer(
      * @see [finish] to clean up the player
      */
     fun stop() {
-        replayEventSimulator.stopPlaying()
+        replayEventSimulator.stopSimulator()
     }
 
     /**
@@ -115,7 +110,7 @@ class ReplayHistoryPlayer(
         }
         firstUpdateLocation?.let { replayEvent ->
             val replayEvents = singletonList(replayEvent)
-            replayEventsObservers.forEach { it(replayEvents) }
+            replayEventsObservers.forEach { it.replayEvents(replayEvents) }
         }
     }
 
