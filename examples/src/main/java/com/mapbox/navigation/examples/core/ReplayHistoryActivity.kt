@@ -304,18 +304,18 @@ private fun loadHistoryJsonFromAssets(context: Context, fileName: String): Strin
 }
 
 private class ReplayCustomEventMapper : CustomEventMapper {
-    override fun invoke(eventType: String, event: LinkedTreeMap<*, *>): ReplayEventBase? {
+    override fun map(eventType: String, properties: LinkedTreeMap<*, *>): ReplayEventBase? {
         return when (eventType) {
             "start_transit" -> ReplayEventStartTransit(
-                eventTimestamp = event["event_timestamp"] as Double,
-                properties = event["properties"] as Double)
+                eventTimestamp = properties["event_timestamp"] as Double,
+                properties = properties["properties"] as Double)
             "initial_route" -> {
-                val properties = event["properties"] as LinkedTreeMap<*, *>
+                val properties = properties["properties"] as LinkedTreeMap<*, *>
                 val routeOptions = properties["routeOptions"] as LinkedTreeMap<*, *>
                 val coordinates = routeOptions["coordinates"] as List<List<Double>>
                 val coordinatesLatLng = coordinates.map { LatLng(it[1], it[0]) }
                 ReplayEventInitialRoute(
-                    eventTimestamp = event["event_timestamp"] as Double,
+                    eventTimestamp = properties["event_timestamp"] as Double,
                     coordinates = coordinatesLatLng
                 )
             }
