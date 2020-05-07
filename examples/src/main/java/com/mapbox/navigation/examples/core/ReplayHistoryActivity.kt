@@ -310,8 +310,8 @@ private class ReplayCustomEventMapper : CustomEventMapper {
                 eventTimestamp = properties["event_timestamp"] as Double,
                 properties = properties["properties"] as Double)
             "initial_route" -> {
-                val properties = properties["properties"] as LinkedTreeMap<*, *>
-                val routeOptions = properties["routeOptions"] as LinkedTreeMap<*, *>
+                val eventProperties = properties["properties"] as LinkedTreeMap<*, *>
+                val routeOptions = eventProperties["routeOptions"] as LinkedTreeMap<*, *>
                 val coordinates = routeOptions["coordinates"] as List<List<Double>>
                 val coordinatesLatLng = coordinates.map { LatLng(it[1], it[0]) }
                 ReplayEventInitialRoute(
